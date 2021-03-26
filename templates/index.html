@@ -1,0 +1,163 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Rishabh
+{% endblock title %}
+
+{% block body %}
+
+    <section class="banner" id="home">
+        <div class="textBx">
+            <h2>Rishabh Raj Shukla</h2>
+            <h3>Exploring...</h3>
+            <a href="#about" class="btn">About me</a>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="heading">
+            <h2>About me</h2>
+        </div>
+        <div class="content">
+            <div class="contentBx try">
+                <h3>Finding Myself</h3>
+                <p>"Hi I’m Rishabh and I am Second year student pursuing Engineering from DY Patil University of Pune with a degree in Information Technology. My interests are mainly in Data Science, AI and Web Development. I am working on improving my competitive programming. My hobbies are doing sketching, editing, writing, and last but not least I love Exploring new things.</p>
+            </div>
+            <div class="try">
+                <img src="{{url_for('static', filename='img/me.jpg')}}" class="img" alt="This is me">
+            </div>
+    </section>
+    <section class="skills" id="skills">
+        <div class="heading white">
+            <h2>My Skills</h2>
+            
+        </div>
+        <div class="content">
+            <div class="skillsBx">
+                <img src="{{url_for('static', filename='img/icon1.png')}}" alt="">
+                <h2>Data Science</h2>
+                <p>I typically use Python, because it is simple and easy to understand. Matplotlib and seaborn are my favourite visualization tools. For database I prefered using mysql. </p>
+                <p><i>print("Hello Datascience")</i></p>
+            </div>
+            <div class="skillsBx">
+                <img src="{{url_for('static', filename='img/icon2.png')}}" alt="">
+                <h2>Backend Development</h2>
+                <p>I use both javascript(Node.js) and python(flask) for development.
+                    I use MongoDB database here.
+                <p><i>@app.route('/')</i></p>
+                <p><i>def backend():</i></p>
+                <p> <i> return 'Hello!'</i></p>
+                </p>
+            </div>
+            <div class="skillsBx">
+                <img src="{{url_for('static', filename='img/icon3.png')}}" alt="">
+                <h2>Android Studio</h2>
+                <p>Language I used here are Java and Kotlin.</p>
+            </div>
+        </div>
+    </section>
+    <section class="work" id="work">
+        <div class="heading">
+            <h2>My work</h2>
+            <p>Some of my work, do check once!!</p>
+        </div>
+        <div class="content">
+            <div class="workBx">
+                <a href="https://rajshukla1102.github.io/notes/"><img src="{{url_for('static', filename='img/nm.png')}}" alt=""></a>
+                <h1>Note making</h1>
+                <p>Note making using javascript</p>
+            </div>
+            <div class="workBx">
+                <a href="https://github.com/rajshukla1102/Passport-Authentication-form"><img src="{{url_for('static', filename='img/rsz_autenticate3.png')}}" alt=""></a>
+                <h1>Signup-Login Authentication</h1>
+                <p>Users Signup/Login(Passport-ExpressJS and nodeJs)</p>
+            </div>
+            <div class="workBx">
+                <a href="https://github.com/rajshukla1102/Heart-Disease-Prediction"><img src="{{url_for('static', filename='img/heart.jpg')}}" alt=""></a>
+                <h1>Heart-Disease Prediction</h1>
+                <p>It predict whether a person has heart disease or not.</p>
+            </div>
+            <div class="workBx">
+               <a href="https://rajshukla1102.github.io/RecipeApp/"> <img src="{{url_for('static', filename='img/recipe.jpg')}}" alt=""></a>
+                <h1>Recipe Website </h1>
+                <p>I have used Food API to fetch recipes</p>
+            </div>
+        </div>
+        <div class="heading">
+            <a href="https://github.com/rajshukla1102" class="btn">View More</a>
+        </div>
+    </section>
+    <section class="accom" id="accom">
+        <div class="heading">
+            <h2>Accomplishments</h2>
+            <p>Here are some of my certification!</p>
+        </div>
+        <div class="content">
+            <div class="accomBx">
+               
+                <img src="{{url_for('static', filename='img/certificate5.png')}}" alt="">
+            </div>
+            <div class="accomBx">
+               
+                <img src="{{url_for('static', filename='img/certificate2.jpg')}}" alt="">
+            </div>
+            <div class="accomBx">
+               
+                <img src="{{url_for('static', filename='img/certificate3.jpg')}}" alt="">
+            </div>
+            <div class="accomBx">
+               
+                <img src="{{url_for('static', filename='img/certificate4.jpg')}}" alt="">
+            </div>
+            <div class="accomBx">
+               
+                <img src="{{url_for('static', filename='img/certificate5.jpg')}}" alt="">
+            </div>
+        </div>
+    </section>
+    <section class="contact" id="contact">
+        <div class="heading white">
+            <h2>Suggestions</h2>
+            <p>Any suggestion? Write here!</p>
+        </div>
+        <div class="content">
+            <div class="contactInfo">
+                <h3>Contact Info</h3>
+                <div class="contactInfoBx">
+                    <div class="box">
+                        <div class="icon"> <i class="fa fa-map-marker"></i></div>
+                        <div class="text">
+                            <h3>Address</h3>
+                            <p>DY Patil institute of Technology,Pimpiri</p>
+                            <p>Pune-411018</p>
+                            <p>Mumbai</p>
+                        </div>
+                    </div>
+                    
+                    <div class="box">
+                        <div class="icon">
+                            <i class="fa fa-envelope"></i>
+
+                        </div>
+                        <div class="text">
+                            <h3>Email</h3>
+                            <p>rajshukla1102@gmail.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                <div class="formBx">
+                    <form action="/submit" method="POST">
+                        <h3>Check me</h3>
+                      
+
+                        <input type="text" name=  "name" placeholder="Full Name" >
+                        <input type="email" name="email" placeholder="Email" >
+                        <textarea name="message" placeholder="Your message" cols="30" rows="10"></textarea>
+                        <input type="submit" value="Send" id ="submit">
+                    </form>
+                </div>
+        </div>
+    </section>
+ 
+       
+   {% endblock  %}

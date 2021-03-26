@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/e07edb01fd.js" crossorigin="anonymous"></script>
+    <title>{% block title %}
+        
+    {% endblock title %}- Portfolio</title>
+
+</head>
+
+<body>
+  
+    <header>
+        <a href="/" class="logo">Hey! there <span> <i class="fa fa-black-tie"></i></span></a>
+        <div class="toggle" onclick="toggleMenu();"></div>
+        <ul class="menu">
+            <li><a href="#home" onclick="toggleMenu();" >Home</a></li>
+            <li><a href="#about" onclick="toggleMenu();">About</a></li>
+            <li><a href="#skills" onclick="toggleMenu();">Skills</a></li>
+            <li><a href="#work" onclick="toggleMenu();">Work</a></li>
+            <li><a href="#accom" onclick="toggleMenu();">Accomplishments</a></li>
+            <li><a href="#contact" onclick="toggleMenu();">Contact</a></li>
+        </ul>
+    </header>
+    <div class="float" onclick="toggleMenu2()">
+        <span>+</span>
+        <ul>
+            <li><a href="www.linkedin.com/in/rajshukla1102"><i class="fa fa-linkedin"></i>Linkedin</a></li>
+            <li><a href="https://github.com/rajshukla1102"><i class="fa fa-github"></i>Check out my Github</a></li>
+            <li><a href="https://www.kaggle.com/rajshukla1102"><i class="fab fa-kaggle"></i>Check out my Kaggle</a></li>
+            <li><a href="https://twitter.com/rajshukla_1102"><i class="fa fa-twitter"></i>Check out my Twitter</a></li>
+            
+        </ul>
+        </div>
+        {% block body %}
+        
+        {% endblock body %}
+    
+    <div class="copyright">
+        <p>Copyright &copy; Rishabh Raj Shukla. All Rights Reserved.</p>
+    </div>
+
+
+
+
+</body>
+
+</html>
