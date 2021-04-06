@@ -1,19 +1,19 @@
 from flask import Flask, render_template, redirect, url_for, request
-from flask_mysqldb import MySQL
-import yaml
-
+# from flask_mysqldb import MySQL
+# import yaml
+import pymongo
+from pymongo import MongoClient
+import urllib.parse
 
 app = Flask(__name__)
 
 
-ab=yaml.load(open('db.yaml'))
-app.config['MYSQL_USER'] = ab['mysql_user']
-app.config['MYSQL_PASSWORD'] = ab['mysql_password']
-app.config['MYSQL_HOST'] = ab['mysql_host']
-app.config['MYSQL_DB'] = ab['mysql_user']
-app.config['MYSQL_CURSORCLASS'] = 'DictCursor'
+url="mongodb+srv://<yourusername>:<yourpassword>@cluster0.eszou.mongodb.net/<yourdb>?retryWrites=true&w=majority"
 
-mysql=MySQL(app)
+cluster=MongoClient(url)
+db=cluster["db"]
+collection=db['test']
+
 
 
 @app.route('/')
@@ -29,17 +29,13 @@ def submit():
             name=data['name']
             email=data['email']
             message=data['message']
+            print(email)
             if(not name or not email or not message):
                 err="All form fields required..."
                 title="Re-submit"
                 return render_template('failedform.html',err=err,name=name,email=email,title=title)
             else:
-                cur=mysql.connection.cursor()
-                # cur.execute('''CREATE TABLE myRecords (name VARCHAR(50)  , email VARCHAR(50) , message VARCHAR(400)) ''')
-                cur.execute("INSERT INTO myRecords (name,email,message) VALUES(%s,%s,%s)",(name,email,message))
-                mysql.connection.commit()
-                cur.close()
- 
+                collection.insert_one({"name":name, "email":email, "message": message})
                 mess="Thankyou!! I will surely work on your suggestion..."
                 return render_template("end.html",mess=mess)
                 
